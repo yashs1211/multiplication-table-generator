@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+    <link rel="shortcut icon" href="/icon-1main.png" type="image/x-icon">
+     <style>
+        *{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    background-color: cadetblue;
+}
+h1{
+    text-align: center;
+   font-size: 50px;
+font-weight: bold;
+}
+.parent{
+   border: 5px solid white;
+   margin: 50px;
+   box-shadow: 0px 0px 10px white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   gap: 50px;
+  
+}
+.parent h1{
+    font-size: 20px;
+    margin: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: italic;
+    text-shadow: 0px 0px 10px white;
+   }
+input{
+     font-size: larger;
+    height: 30px;
+     background: none;
+     border: 2px solid white;
+     font-size: 20px;
+     text-align: center;
+   
+}
+input:focus{
+    box-shadow: 0px 0px 10px white ;
+    border: 2px solid white;
+    outline: none;
+}
+button{
+    height: 40px;
+width: 300px;
+border: none;
+border-radius: 10px;
+
+}
+#table{
+    border: 2px solid gold;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 0px 20px gold;
+    font-size: 20px;
+    color: white;
+}
+
+     </style>  
+</head>
+<body>
+    <h1>Multiplication Table Generator 📱</h1>
+    <div class="parent">
+      <h1>Enter The Value You Want</h1>
+      <div class="input-type">
+  <lable for="input"> Any Number</lable>
+  <input type="number" id="nameInput" placeholder="Enter-Number" >
+      </div>
+      <button id="btn" type="submit">Get Table </button>
+    
+<div id="table">
+</div>
+<script>
+    const input=document.getElementById('nameInput');
+const button=document.getElementById('btn');
+const table=document.getElementById('table');
+ input.focus();
+input.addEventListener('keydown', function(e){
+  if(e.key === 'Enter'){
+    button.click();
+  }
+});
+
+button.addEventListener('click',function(){
+  const value = input.value;
+   table.innerHTML=''; 
+     if(input.value==''||  + input.value==0){  
+     
+   button.style.backgroundColor='red';
+         button.textContent='please slecet any number';
+         button.style.color='white';
+    
+       
+  }else{
+    for(let i=1;i<=10;i++){
+
+   table.innerHTML+=`${value}*${i}=${value*i}<br>`; 
+    button.style.backgroundColor='blue';
+         button.textContent='Get Table ';
+         button.style.color='white';
+  } 
+  }
+
+ 
+});
+table.addEventListener('click', function(){
+  table.innerHTML = ""; 
+  input.value='';
+ table.textContent='you can choose another  number';
+
+});
+</script>
+</body>
+</html>
+
